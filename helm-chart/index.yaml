@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  nodejs:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-05-29T15:10:53.719401194+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 75a993e20a53d95f5335edaa019421d2a408766c0700adfdd6f0f6ab02b26baf
+    name: nodejs
+    type: application
+    urls:
+    - nodejs-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-05-29T15:10:53.718818481+05:30"
