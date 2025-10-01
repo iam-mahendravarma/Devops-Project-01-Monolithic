@@ -1,0 +1,52 @@
+pipeline {
+    agent any
+
+    environment {
+        APP_NAME = "nextjs-app"
+        APP_DIR  = "/var/www/html"
+        NODE_ENV = "production"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/iam-mahendravarma/Devops-Project-01-Monolithic.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                dir("${APP_DIR}") {
+                    sh 'npm ci'
+                }
+            }
+        }
+
+        stage('Build App') {
+            steps {
+                dir("${APP_DIR}") {
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    // Restart systemd service
+                    sh "sudo systemctl restart ${APP_NAME}"
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Deployment successful!'
+        }
+        failure {
+            echo '❌ Deployment failed!'
+        }
+    }
+}
