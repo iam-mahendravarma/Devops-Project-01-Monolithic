@@ -58,7 +58,7 @@ export default function LoginPage() {
             <Image src="/g2techsoft-logo.svg" alt="G2TechSoft Logo" width={180} height={40} style={{ background: 'transparent' }} />
           </Box>
           <Typography variant="h5" sx={{ mb: 2, fontWeight: 700, letterSpacing: 2, color: 'primary.main' }}>
-            Logins
+            Loginss
           </Typography>
           <form onSubmit={handleSubmit}>
             <TextField
