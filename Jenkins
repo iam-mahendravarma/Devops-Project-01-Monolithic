@@ -17,18 +17,15 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                dir("${WORKSPACE}/${APP_NAME}") {  // Build inside Jenkins workspace
-                    sh 'npm install'
-                    sh 'npm install --save-dev typescript @types/react @types/node'
-                }
+                // Build in the root of the workspace since the project files are at the root
+                sh 'npm ci --only=production'
+                sh 'npm install --only=dev'
             }
         }
 
         stage('Build App') {
             steps {
-                dir("${WORKSPACE}/${APP_NAME}") {
-                    sh 'npm run build'
-                }
+                sh 'npm run build'
             }
         }
 
@@ -36,7 +33,7 @@ pipeline {
             steps {
                 script {
                     // Copy build output to /var/www/html (requires sudo)
-                    sh "sudo rsync -a --delete ${WORKSPACE}/${APP_NAME}/ ${APP_DIR}/"
+                    sh "sudo rsync -a --delete ${WORKSPACE}/ ${APP_DIR}/"
                     // Restart systemd service
                     sh "sudo systemctl restart ${APP_NAME}"
                 }
