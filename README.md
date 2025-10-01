@@ -37,18 +37,8 @@ Jenkins CI pipeline with:
 
 Automated pipeline execution on every push/PR.
 
-📂 Project Structure
-
-Devops-Project-01-Monolithic/
-│── .jenkins/              # Jenkins pipeline (declarative Jenkinsfile)
-│── pages/                 # Next.js pages
-│── public/                # Static files
-│── styles/                # CSS/Styling
-│── package.json           # Dependencies
-│── Jenkinsfile            # Jenkins pipeline definition
-│── README.md              # Documentation
-
 🛠️ Jenkins CI/CD Setup
+
 1️⃣ Prerequisites
 
 Jenkins installed on server (with Git, Node.js, npm).

@@ -20,10 +20,16 @@ pipeline {
                 // Check Node.js and npm versions
                 sh 'node --version'
                 sh 'npm --version'
+                // Clean install to ensure fresh state
+                sh 'rm -rf node_modules package-lock.json'
                 // Install all dependencies including dev dependencies needed for build
                 sh 'npm install'
+                // Explicitly install TypeScript if not present
+                sh 'npm install typescript @types/react @types/node @types/react-dom --save-dev'
                 // Verify TypeScript is installed
                 sh 'npm list typescript'
+                // Also verify node_modules exists and has TypeScript
+                sh 'ls -la node_modules/.bin/tsc'
             }
         }
 
