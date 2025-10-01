@@ -17,9 +17,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                // Build in the root of the workspace since the project files are at the root
-                sh 'npm ci --only=production'
-                sh 'npm install --only=dev'
+                // Check Node.js and npm versions
+                sh 'node --version'
+                sh 'npm --version'
+                // Install all dependencies including dev dependencies needed for build
+                sh 'npm install'
+                // Verify TypeScript is installed
+                sh 'npm list typescript'
             }
         }
 

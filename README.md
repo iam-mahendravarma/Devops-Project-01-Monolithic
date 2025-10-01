@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+DevOps Project 01 – Monolithic Next.js Web App
 
-## Getting Started
+📌 Project Overview
 
-First, run the development server:
+This project is a monolithic web application built with Next.js.
+The focus is not on complex microservices, but on establishing a DevOps foundation with a CI pipeline using Jenkins.
 
-```bash
+The pipeline ensures every code change pushed to GitHub is automatically built and tested via GitHub webhook → Jenkins → CI process.
+
+⚙️ Tech Stack
+
+Frontend & Backend: Next.js (React Framework)
+
+Package Manager: npm / yarn
+
+Server: Node.js
+
+CI/CD Tool: Jenkins
+
+Version Control: GitHub
+
+Features
+
+Monolithic Next.js application (single codebase).
+
+Jenkins CI pipeline with:
+
+✅ GitHub Webhook integration (SCM polling).
+
+✅ Code checkout from main branch.
+
+✅ Dependency installation.
+
+✅ Next.js build process.
+
+✅ Test execution (if available).
+
+Automated pipeline execution on every push/PR.
+
+📂 Project Structure
+
+Devops-Project-01-Monolithic/
+│── .jenkins/              # Jenkins pipeline (declarative Jenkinsfile)
+│── pages/                 # Next.js pages
+│── public/                # Static files
+│── styles/                # CSS/Styling
+│── package.json           # Dependencies
+│── Jenkinsfile            # Jenkins pipeline definition
+│── README.md              # Documentation
+
+🛠️ Jenkins CI/CD Setup
+1️⃣ Prerequisites
+
+Jenkins installed on server (with Git, Node.js, npm).
+
+GitHub repository set up with Jenkins.
+
+GitHub Webhook created → pointing to Jenkins /github-webhook/ endpoint.
+
+2️⃣ Jenkins Configuration
+
+Go to Jenkins Dashboard → New Item → Pipeline.
+
+Configure GitHub hook trigger for GITScm polling under Build Triggers.
+
+Add pipeline script (Jenkinsfile) from SCM.
+
+▶️ How to Run Locally
+
+# Clone repo
+git clone https://github.com/iam-mahendravarma/Devops-Project-01-Monolithic.git
+
+# Install dependencies
+npm install
+
+# Run Dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Build app
+npm run build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Start production
+npm start
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📸 Pipeline Flow
 
-## Learn More
+GitHub Push → Webhook Trigger → Jenkins Pipeline → Build  → Result
 
-To learn more about Next.js, take a look at the following resources:
+👤 Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Mahendravarma
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+💻 DevOps Engineer | Jenkins | Docker | Kubernetes | CI/CD | AWS
